@@ -1,14 +1,9 @@
-import logo from './logo.svg';
-import './App.css';
+import Taskbar from './Components/taskbar/Taskbar';
 
 function App() {
   return (
-    <div>
-      <h1>
-        hello world.
-      </h1>
-    </div>
-  );
+    <Taskbar/>
+  )
 }
 
 export default App;
