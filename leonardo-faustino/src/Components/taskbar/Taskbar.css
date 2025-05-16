@@ -7,6 +7,7 @@
   padding: 0 32px;
   height: 87px;
   overflow: hidden;
+  flex-wrap: wrap;
 }
 
 .taskbarClass::after {
@@ -17,15 +18,16 @@
   transform: translateX(-50%);
   width: 200%;
   height: 3px;
-  background-color: white;
+  background-color: white;  
   border-top-left-radius: 100% 50px;
   border-top-right-radius: 100% 50px;
 }
 
 .iconClass {
     display: flex;
-    align-items: 0;
+    align-items: center;
 }
+
 .iconlClass img{
     width: 65px;
 }
@@ -33,6 +35,7 @@
 .linksClass{
     display: flex;
     gap: 74px;
+    flex-wrap: wrap;
 }
 
 .linksClass h2 {
@@ -50,4 +53,12 @@
 
 .tranducaoClass img{
     width: 38px;
+}
+
+@media (max-width: 768px) {
+
+}
+
+@media (max-width: 480px) {
+
 }
