@@ -1,0 +1,41 @@
+.footerClass{
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+    height: 70px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    margin-top: 3px;
+    color: white;
+
+}
+
+.footerClass::before {
+  content: '';
+  position: absolute;
+  top: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200%;
+  height: 3px;
+  background-color: rgb(255, 255, 255);
+  border-bottom-left-radius: 100% 50px;
+  border-bottom-right-radius: 100% 50px;
+}
+
+.direitosClass{
+    color: white;
+}
+
+.socialmediaClass{
+    display: flex;
+    align-items: center;
+}
+
+.socialmediaClass img {
+    padding: 5px;
+    width: 35px;
+    height: auto;
+}
