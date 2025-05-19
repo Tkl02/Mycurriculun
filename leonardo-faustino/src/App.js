@@ -4,10 +4,10 @@ import Taskbar from './Components/taskbar/Taskbar';
 
 function App() {
   return (
-    <div>
+    <>
     <Taskbar/>
     <Footer/>
-    </div>
+    </>
   )
 }
 
