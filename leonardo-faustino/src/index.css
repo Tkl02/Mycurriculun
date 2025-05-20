@@ -1,6 +1,9 @@
 body {
   margin: 0;
-  font-family:'Times New Roman', Times, serif;
-
   background-color: #272727;
+  font-family: 'Poppins', sans-serif;
+}
+
+h1,p{
+  color: white;
 }
