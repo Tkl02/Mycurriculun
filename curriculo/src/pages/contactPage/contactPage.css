@@ -1,10 +1,12 @@
 .bodyContact{
+    height: 600px;
+    background-color: #272727;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
     gap: 32px;
-    padding: 32px;
+
 }
 
 img{

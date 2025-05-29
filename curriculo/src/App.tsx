@@ -1,6 +1,6 @@
 import './App.css'
-import Footer from './Components/footer/Footer';
-import Taskbar from './Components/taskbar/Taskbar';
+import Footer from './components/footer/Footer';
+import Taskbar from './components/taskbar/Taskbar';
 //import HomePage from './pages/homePage/HomePage'
 import ContactPage from './pages/contactPage/contactPage';
 
