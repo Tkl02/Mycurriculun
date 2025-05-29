@@ -1,19 +1,23 @@
 import './App.css'
-import Footer from './components/footer/Footer';
-import Taskbar from './components/taskbar/Taskbar';
-//import HomePage from './pages/homePage/HomePage'
-import ContactPage from './pages/contactPage/contactPage';
-
-// pallete references: https://coolors.co/palette/131515-2b2c28-339989-7de2d1-fffafb
+import teste from './assets/img/testes.png'
 
 function App() {
-  return (
-    <>
-    <Taskbar/>
-    <ContactPage/>
-    <Footer/>
-    </>
-  )
+    return(
+        <div className='homePagaClass'>
+            <div className='homeImg'>
+                <img src={teste} alt="MyImage"/>
+            </div>
+            <div className='homeText'>
+                <h1>
+                    Leonardo Faustino.
+                </h1>
+                <p>Sou estudante de Ciências da Computação no Instituto Federal Goiano, com uma paixão por tecnologia que começou desde cedo. Atualmente, concentro meus estudos e projetos na área de Segurança da Informação, com ênfase em hacking ético e testes de intrusão (pentests).<br/><br/>
+                Além disso, tenho interesse em áreas como Inteligência Artificial, desenvolvimento de jogos e criação de softwares, buscando sempre expandir meus conhecimentos e habilidades. No entanto, meu foco principal permanece na segurança digital, onde pretendo construir minha carreira e contribuir para a proteção de sistemas e dados.
+                </p>
+            </div>
+
+        </div>
+    )
 }
 
-export default App;
+export default App

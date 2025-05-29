@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent } from 'react';
+import { useState, type ChangeEvent } from 'react';
 import './contactPage.css';
 import emailImage from '../../assets/img/gmail-logo1.png';
 
