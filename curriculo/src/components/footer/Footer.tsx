@@ -8,7 +8,7 @@ function Footer() {
     return(
         <div className='footerClass'>
             <div className='direitosClass'>
-                <p>@ 2025 - Leonardo Faustino - All Rights Reserved</p>    
+                <p style={{color: 'white'}}>@ 2025 - Leonardo Faustino - All Rights Reserved</p>    
             </div>
             <div className='socialmediaClass'>
                 <img src={github} alt=''/>

@@ -3,14 +3,28 @@ import './contactPage.css';
 import emailImage from '../../assets/img/gmail-logo1.png';
 
 function ContactPage() {
-  const [text, setText] = useState('');
+  const [inputText, setInputText] = useState('');
+  const [textareaText, setTextareaText] = useState('');
+  const [emailText, setEmailText] = useState('');
 
-  const handleChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
-    const inputText = e.target.value;
-    const wordCount = inputText.trim().split(/\s+/).length;
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const newValue = e.target.value;
+    if (newValue.length <= 100) {
+      setInputText(newValue);
+    }
+  };
 
-    if (wordCount <= 5000) {
-      setText(inputText);
+  const handleTextareaChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
+    const newValue = e.target.value;
+    if (newValue.length <= 5000) {
+      setTextareaText(newValue);
+    }
+  };
+  
+  const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const newValue = e.target.value;
+    if (newValue.length <= 120) {
+      setEmailText(newValue);
     }
   };
 
@@ -22,18 +36,23 @@ function ContactPage() {
 
       <div className='boxEmail'>
         <p>Nome Completo</p>
-        <input type="text" />
+        <input type="text" value={inputText} onChange={handleInputChange} />
 
         <p>Email</p>
-        <input type="email" />
+        <input type="email" value={emailText} onChange={handleEmailChange} />
 
         <p>Mensagem</p>
         <textarea
-          value={text}
-          onChange={handleChange}
+          value={textareaText}
+          onChange={handleTextareaChange}
           className='custom-textarea'
           placeholder='Digite sua mensagem aqui...'
         />
+        <div className='containerCounterChar'>
+          <p style={{color: '#393d3f', fontSize:14}}>
+            Atual:{textareaText.length} Max:5000.
+          </p>
+        </div>
         <div className='buttomContainer'>
         <button className='enviarButton'>Enviar</button>
         </div>

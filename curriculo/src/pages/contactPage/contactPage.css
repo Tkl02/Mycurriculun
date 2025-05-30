@@ -75,3 +75,10 @@ input{
     width: 100px;
     height: 35px;
 }
+
+.containerCounterChar{
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    
+}
