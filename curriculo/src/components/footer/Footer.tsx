@@ -11,10 +11,10 @@ function Footer() {
                 <p style={{color: 'white'}}>@ 2025 - Leonardo Faustino - All Rights Reserved</p>    
             </div>
             <div className='socialmediaClass'>
-                <img src={github} alt=''/>
-                <img src={linkedin} alt=''/>
-                <img src={email} alt=''/>
-                <img src={instagram} alt=''/>
+                <a href='https://github.com/tkl02'><img src={github} alt=''/></a>
+                <a href='https://www.linkedin.com/in/leonardo-faustino-77581633a/'><img src={linkedin} alt=''/></a>
+                <a href='mailto:leonardo.faustino.sec@gmail.com'><img src={email} alt=''/></a>
+                <a href='https://www.instagram.com/leonardo.faustin0/'><img src={instagram} alt=''/></a>
             </div>
         </div>
     )

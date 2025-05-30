@@ -1,33 +1,21 @@
-.footerClass{
-    background-color: black;
-    display: flex;
-    justify-content: space-between;
-    height: 70px;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    margin-top: 3px;
-    color: white;
-
+.footerClass {
+  background-color: black;
+  display: flex;
+  justify-content: space-between;
+  height: 70px;
+  width: 100%;
+  color: white;
+  border-top: 3px solid white;
 }
 
-.footerClass::before {
-  content: '';
-  position: absolute;
-  top: 0px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 200%;
-  height: 3px;
-  background-color: rgb(255, 255, 255);
-  border-bottom-left-radius: 100% 50px;
-  border-bottom-right-radius: 100% 50px;
-}
 
 .direitosClass{
     color: white;
     font-size: 12px;
+    display: flex;
+    align-items: end;
+    margin-bottom: 3px;
+
 }
 
 .socialmediaClass{
@@ -37,7 +25,11 @@
 
 .socialmediaClass img {
     padding: 5px;
-    width: 27px;
+    width: 29px;
     height: auto;
+}
+
+.socialmediaClass a{
+    margin: 0px;
 }
 
