@@ -9,7 +9,7 @@ function App() {
             </div>
             <div className='homeText'>
                 <h1>
-                   <span> Leonardo</span>
+                   <span style={{ color: '#ffffff' }}> Leonardo</span>
                    <span style={{color: '#00f2ff'}}> Faustino</span>
                 </h1>
                 <p style={{color: 'white'}}>Sou estudante de Ciências da Computação no Instituto Federal Goiano, com uma paixão por tecnologia que começou desde cedo. Atualmente, concentro meus estudos e projetos na área de Segurança da Informação, com ênfase em hacking ético e testes de intrusão (pentests).<br/><br/>
