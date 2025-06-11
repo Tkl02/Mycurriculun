@@ -13,19 +13,7 @@ body {
   padding: 0 12px;
   height: 87px;
   overflow: hidden;
-}
-
-.taskbarClass::after {
-  content: '';
-  position: absolute;
-  bottom: 0px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 200%;
-  height: 3px;
-  background-color: white;  
-  border-top-left-radius: 100% 50px;
-  border-top-right-radius: 100% 50px;
+  border-bottom: 3px solid white;
 }
 
 .iconClass {

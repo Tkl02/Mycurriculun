@@ -1,0 +1,36 @@
+.loginPageContainer{
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.formContainer{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.50);
+    border-radius: 15px;
+    height: 320px;
+    width: 440px;
+    border: 2px solid #00f2ff;
+}
+
+.formContainer h1{
+    color: rgb(255, 255, 255);
+}
+
+input{
+    min-width: 80%;
+    margin: 15px 0px;
+}
+
+button{
+    margin: 30px;
+    background-color: #00f2ff;
+    color: #000000;
+    border-radius: 12px;
+    font-size: 26px;
+    width: 40%;
+    height: 13%;
+}

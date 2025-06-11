@@ -5,12 +5,12 @@ import iconBrasil from '../../assets/img/iconBrasil.png';
 import iconUsa from '../../assets/img/iconUsa.png';
 
 
-function Taskbar(){
+function Taskbar() {
     return (
         <div className="taskbarClass">
-            <div className="iconlClass">
-              <img src={logo} alt=""/>
-            </div>
+            <NavLink to='/Login' style={{margin:'0'}}><div className="iconlClass">
+                <img src={logo} alt="" />
+            </div></NavLink>
             <div className="linksClass">
                 <nav>
                     <NavLink to="/Contact" end className={({ isActive }) => (isActive ? 'active' : '')}>Contato</NavLink>
@@ -21,8 +21,8 @@ function Taskbar(){
                 </nav>
             </div>
             <div className="tranducaoClass">
-                <img src={iconBrasil} alt=''/>
-                <img src={iconUsa} alt=''/>
+                <img src={iconBrasil} alt='' />
+                <img src={iconUsa} alt='' />
             </div>
         </div>
     )

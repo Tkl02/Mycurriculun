@@ -1,4 +1,6 @@
 .footerClass {
+  position: relative;
+  bottom: 0%;
   background-color: #1e1e1e;
   display: flex;
   justify-content: space-between;
