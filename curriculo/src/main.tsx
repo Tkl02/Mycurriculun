@@ -1,5 +1,3 @@
-// src/main.tsx
-
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
@@ -11,7 +9,7 @@ import AboutPage from './pages/aboutPage/AboutPage.tsx'
 import CertificationPage from './pages/certificationPage/certificationPage.tsx'
 import LoginPage from './pages/loginPage/loginPage.tsx'
 import UploadsPage from './pages/uploadsPage/uploadsPage.tsx'
-import ProtectedRoute from './Components/ProtectedRoute.tsx' // Importa o ProtectedRoute
+import ProtectedRoute from './Components/ProtectedRoute.tsx'
 
 const router = createBrowserRouter([
   {
@@ -25,9 +23,9 @@ const router = createBrowserRouter([
       { path: 'Login', element: <LoginPage /> },
       // Rota PROTEGIDA: Envolvendo a página de Uploads
       {
-        element: <ProtectedRoute />, // Este elemento é o guardião
+        element: <ProtectedRoute />, 
         children: [
-          { path: 'Uploads', element: <UploadsPage /> } // A página de Uploads é o filho protegido
+          { path: 'Uploads', element: <UploadsPage /> }
         ]
       }
     ]
