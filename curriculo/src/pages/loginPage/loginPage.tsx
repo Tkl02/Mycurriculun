@@ -1,17 +1,15 @@
-// src/pages/loginpage/LoginPage.tsx
-
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-import './loginPage.css';
-import api from '../../services/api'; // Importa o cliente axios configurado
+import api from '../../services/api';
+import './loginPage.css'
 
-interface LoginSucssesResponse{
+interface LoginSuccessResponse {
   message: string;
   token: string;
 }
 
 const LoginPage: React.FC = () => {
-  const [username, setUsername] = useState(''); // Renomeado de email para username
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
@@ -21,29 +19,35 @@ const LoginPage: React.FC = () => {
     setError('');
 
     try {
-      const res = await api.post<LoginSucssesResponse>('/auth/login', { // Usando api.post e o endpoint correto
-        username, // Enviando username
+      const res = await api.post<LoginSuccessResponse>('/auth/login', {
+        username,
         password,
       });
 
-      const { token, message } = res.data; // Desestrutura o token e a mensagem
+      const { token, message } = res.data;
 
-      // Se a requisição for bem-sucedida (axios já lida com res.ok via try/catch)
-      localStorage.setItem('authToken', token); // Armazena o token com o nome 'authToken'
-      navigate('/uploads'); // Redirecionar para a página de uploads (ou 'admin', como você preferir)
-      console.log(message); // Log da mensagem de sucesso
+      if (token) {
+        localStorage.setItem('authToken', token);
+        console.log('Token salvo no localstorage');
+        navigate('/uploads')
+        console.log(message);
+      }
+      else {
+        setError('Login bem sucedido, Mas nenhum token salvo');
+        console.error('erro token não encontrado');
+      }
 
-    } catch (err: any) { // Captura o erro para tratamento
+    } catch (err: any) {
       if (err.response) {
-        // Erro vindo do servidor (ex: status 400, 401)
+
         setError(err.response.data.message || 'Erro ao fazer login. Verifique suas credenciais.');
         console.error('Erro na resposta da API:', err.response.data);
       } else if (err.request) {
-        // Erro de requisição (sem resposta do servidor)
+
         setError('Erro de conexão com o servidor. Verifique se o back-end está rodando.');
         console.error('Erro na requisição:', err.request);
       } else {
-        // Outros erros
+
         setError('Ocorreu um erro inesperado.');
         console.error('Erro desconhecido:', err.message);
       }
@@ -51,28 +55,30 @@ const LoginPage: React.FC = () => {
   };
 
   return (
-    <div style={{ maxWidth: '400px', margin: 'auto', marginTop: '100px' }}>
-      <h2>Login</h2>
-      <form onSubmit={handleLogin}>
-        <input
-          type="text" // Alterado para 'text' já que agora é username, não necessariamente email
-          placeholder="Nome de Usuário" // Atualizado placeholder
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          required
-          style={{ display: 'block', marginBottom: '10px', width: '100%' }}
-        />
-        <input
-          type="password"
-          placeholder="Senha"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-          style={{ display: 'block', marginBottom: '10px', width: '100%' }}
-        />
-        <button type="submit">Entrar</button>
-        {error && <p style={{ color: 'red' }}>{error}</p>}
-      </form>
+    <div className='BodyFormLogin'>
+      <div className='BoxFormLogin'>
+        <h2>Login</h2>
+        <form onSubmit={handleLogin}>
+          <input
+            type="text"
+            placeholder="Nome de Usuário"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            required
+            style={{ display: 'block', marginBottom: '10px', width: '100%' }}
+          />
+          <input
+            type="password"
+            placeholder="Senha"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+            style={{ display: 'block', marginBottom: '10px', width: '100%' }}
+          />
+          <button className='buttomLogin' type="submit">Entrar</button>
+          {error && <p style={{ color: 'red' }}>{error}</p>}
+        </form>
+      </div>
     </div>
   );
 };

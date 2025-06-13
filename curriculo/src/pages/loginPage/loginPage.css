@@ -1,36 +1,55 @@
-.loginPageContainer{
+.BodyFormLogin{
     height: 80vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    align-content: center;
+    justify-items: center;
 }
 
-.formContainer{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    background-color: rgba(0, 0, 0, 0.50);
-    border-radius: 15px;
-    height: 320px;
-    width: 440px;
-    border: 2px solid #00f2ff;
+@keyframes borderPulse {
+  0% {
+    border-color: #ff0000ae;
+  }
+  25% {
+    border-color: #00ff00ae;
+  }
+  50% {
+    border-color: #0000ffae;
+  }
+  75% {
+    border-color: #a200ffae;
+  }
+  100% {
+    border-color: #ff00d9ae;
+  }
 }
 
-.formContainer h1{
-    color: rgb(255, 255, 255);
+.BoxFormLogin {
+  width: 600px;
+  height: 300px;
+  background-color: #0e0e0e;
+  align-content: center;
+  justify-items: center;
+  border-radius: 12px;
+  border: 2px solid #ff4d4d;
+  animation: borderPulse 4s linear infinite;
+}
+h2{
+    margin: 10px;
+    font-size: 24px;
+    font-weight: 650;
 }
 
-input{
-    min-width: 80%;
-    margin: 15px 0px;
+form{
+    justify-items: center;
+    width: 70%;
 }
 
-button{
-    margin: 30px;
-    background-color: #00f2ff;
-    color: #000000;
+.buttomLogin{
+    align-content: center;
+    justify-items: center;
+    margin-top: 20px;
+    width: 120px;
+    height: 50px;
     border-radius: 12px;
-    font-size: 26px;
-    width: 40%;
-    height: 13%;
+    font-size: 20px;
+    font-weight: bold;
 }

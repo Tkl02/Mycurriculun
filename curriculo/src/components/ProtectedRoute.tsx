@@ -1,42 +1,72 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Navigate, Outlet } from "react-router-dom";
+import api from "../services/api";
 import { jwtDecode } from "jwt-decode";
 
-interface ProtectedRouteProps {
+interface ProtectedRouteProps{
     redirectPath?: string;
 }
-interface JwtPayload{
+
+interface jwtPayload {
     exp: number;
 }
 
-const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ redirectPath = '/Login' }) => {
-    const token = localStorage.getItem('authToken');
+const ProtectedRoute: React.FC<ProtectedRouteProps> = ({redirectPath = '/login'}) =>{
+    const [isAuthenticated, setAuthenticated] = useState(false);
+    const [loading, setloading] = useState(true);
 
-    const isTokenValid = (token: string | null): boolean => {
-        if (!token) {
-            return false;
-        }
-        try {
+    useEffect(()=>{
+        const verifyToken = async () =>{
+            const token = localStorage.getItem('authToken');
 
-            const decodedToken = jwtDecode<JwtPayload>(token);
-            const currentTime = Date.now() / 1000;
-
-            if (decodedToken.exp < currentTime) {
-                console.warn('Token expirado');
-                localStorage.removeItem('authToken');
-                return false;
+            if(!token){
+                setAuthenticated(false);
+                setloading(false);
+                return;
             }
-            return true;
-        } catch (error) {
-            console.error('Erro ao decodificar ou validar token:', error);
-            localStorage.removeItem('authToken');
-            return false;
-        }
-    };
-    if (!isTokenValid(token)) {
-        return <Navigate to={redirectPath} replace />;
+
+            try {
+
+                const decodedToken = jwtDecode<jwtPayload>(token);
+                const currentTime = Date.now() / 1000;
+                
+                if(decodedToken.exp <= currentTime){
+                    console.warn('Token expirado localmente. Redirecioando para Login')
+                    localStorage.removeItem('authToken');
+                    setAuthenticated(false);
+                    setloading(false);
+                    return;
+                }
+            } catch (decodeerro) {
+                console.error('Erro ao decodificar o token (local). Redirecioando para Login');
+                localStorage.removeItem('authToken');
+                setAuthenticated(false);
+                setloading(false);
+                return;
+            }
+
+            try {
+                await api.get('/auth/verify');
+                setAuthenticated(true);
+            } catch (apiErro: any) {
+                console.error('Token invalodo no backend', apiErro);
+                localStorage.removeItem('authToken');
+                setAuthenticated(false)
+            } finally{
+                setloading(false);
+            }
+            
+            };
+            verifyToken();
+        },[]);
+
+    if(loading){
+        return <>Verificando Token . . .</>;
     }
-    return <Outlet />;
-};
+    if(!isAuthenticated){
+        return <Navigate to={redirectPath} replace/>;
+    }
+    return <Outlet/>;
+}
 
 export default ProtectedRoute;
