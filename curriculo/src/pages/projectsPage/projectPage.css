@@ -1,12 +1,10 @@
-/* src/pages/certificationPage/CertificationPage.css */
-
-.certification-page-container {
+.project-page-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 50px 20px;
-  background-color: #222; /* Fundo escuro */
-  color: #eee; /* Cor do texto padrão */
+  background-color: #222; 
+  color: #eee; 
   min-height: 100vh;
   font-family: Arial, sans-serif;
 }
@@ -21,84 +19,106 @@
 
 .loading-message,
 .error-message,
-.no-certifications-message {
+.no-projects-message {
   font-size: 1.2em;
   color: #bbb;
   margin-top: 50px;
 }
 
-.certifications-list {
+.projects-list {
   display: flex;
-  flex-direction: column; /* Cards empilhados verticalmente */
-  gap: 30px; /* Espaçamento entre os cards */
+  flex-direction: column; 
+  gap: 30px;
   width: 100%;
-  max-width: 900px; /* Largura máxima para os cards */
+  max-width: 900px;
 }
 
-.certification-card {
-  background-color: #444; /* Cor de fundo do card */
+.project-card {
+  background-color: #444;
   border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-  padding: 25px 30px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  padding: 3px 10px;
   display: flex;
   flex-direction: column;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   position: relative;
 }
 
-.certification-card:hover {
+.project-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
 }
 
-.certification-header {
+.project-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 15px;
+  margin-bottom: 5px;
 }
 
-.certification-title {
+.project-title {
   font-size: 1.8em;
   color: #fff;
   margin: 0;
 }
 
-.certification-link-icon {
+.project-link-icon {
   color: #007bff;
   font-size: 1.5em;
   text-decoration: none;
   transition: color 0.2s ease;
-  display: flex;
+  display: flex; 
   align-items: center;
-  margin-left: 30px;
-  margin: 2px;
+  margin: 15px;
 }
 
-.certification-link-icon:hover {
+.project-link-icon:hover {
   color: #0056b3;
 }
 
-.certification-link-icon img {
-  width: 90px;
-  height: 90px;
+.project-link-icon svg {
+  width: 24px; 
+  height: 24px;
   vertical-align: middle;
 }
 
-.certification-content {
+.project-content {
   display: flex;
   justify-content: space-between;
   gap: 20px;
-  flex-wrap: wrap;
+  flex-wrap: wrap; 
 }
 
-.certification-description {
-  flex: 3;
+.project-description {
+  flex: 3; 
   font-size: 1em;
   color: #ccc;
   line-height: 1.6;
   margin: 0;
-  min-width: 250px;
+  min-width: 250px; 
+}
+
+.project-tags {
+  flex: 1; 
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  min-width: 150px;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.tag-item {
+  background-color: #555;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 0.85em;
+  margin-bottom: 8px;
+  white-space: nowrap;
+  margin-left: auto; 
 }
 
 @media (max-width: 768px) {
@@ -106,21 +126,31 @@
     font-size: 2.2em;
   }
 
-  .certification-card {
+  .project-card {
     padding: 20px;
   }
 
-  .certification-title {
+  .project-title {
     font-size: 1.5em;
   }
 
-  .certification-content {
-    flex-direction: column;
+  .project-content {
+    flex-direction: column; 
+  }
+
+  .project-tags {
+    text-align: left; 
+    margin-left: 0; 
+  }
+
+  .tag-item {
+    margin-left: 0; 
+    margin-right: auto;
   }
 }
 
 @media (max-width: 480px) {
-  .certification-page-container {
+  .project-page-container {
     padding: 30px 15px;
   }
 }

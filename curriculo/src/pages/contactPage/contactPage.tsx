@@ -35,7 +35,7 @@ function ContactPage() {
       </div>
 
       <div className='boxEmail'>
-        <p>Nome Completo</p>
+        <p>Nome Sobrenome</p>
         <input type="text" value={inputText} onChange={handleInputChange} />
 
         <p>Email</p>

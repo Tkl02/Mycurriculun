@@ -10,6 +10,7 @@ import CertificationPage from './pages/certificationPage/certificationPage.tsx'
 import LoginPage from './pages/loginPage/loginPage.tsx'
 import UploadsPage from './pages/uploadsPage/uploadsPage.tsx'
 import ProtectedRoute from './Components/ProtectedRoute.tsx'
+import ProjectPage from './pages/projectsPage/projectPage.tsx'
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,7 @@ const router = createBrowserRouter([
       { path: 'About', element: <AboutPage /> },
       { path: 'Certification', element: <CertificationPage /> },
       { path: 'Login', element: <LoginPage /> },
+      { path: 'Projects', element: <ProjectPage/> },
       // Rota PROTEGIDA: Envolvendo a página de Uploads
       {
         element: <ProtectedRoute />, 
