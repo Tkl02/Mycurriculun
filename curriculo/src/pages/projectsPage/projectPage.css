@@ -49,6 +49,12 @@
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
 }
 
+.error-page-container{
+  display: flex;
+  justify-content: center;
+  height: 80vh;
+}
+
 .project-header {
   display: flex;
   justify-content: space-between;
