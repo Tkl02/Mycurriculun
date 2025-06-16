@@ -2,9 +2,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 40px 20px;
   color: #eee;
-  min-height: 100vh;
+  min-height: 80vh;
   font-family: Arial, sans-serif;
 }
 
@@ -16,8 +15,9 @@
 
 .cards-container {
   display: flex;
+  width: 650px;
   gap: 30px;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
   flex-wrap: wrap;
   justify-content: center;
 }
@@ -73,10 +73,11 @@
 
 .delete-buttons-container {
   display: flex;
-  gap: 30px;
-  margin-top: 30px;
+  width: 600px;
+  gap: 42px;
+  margin-left: 26px;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-around;
 }
 
 .delete-button {
@@ -92,7 +93,7 @@
 }
 
 .delete-button:hover {
-  background-color: #c82333; 
+  background-color: #c82333;
   transform: translateY(-3px);
 }
 
@@ -133,6 +134,14 @@
   margin-bottom: 8px;
   font-weight: bold;
   color: #ccc;
+}
+
+form {
+  display: flex;
+  justify-items: center;
+  width: 95%;
+  flex-direction: column;
+  align-items: center;
 }
 
 .modal-content input[type="text"],
@@ -204,4 +213,28 @@
 
 .modal-content .close-button:hover {
   color: #fff;
+}
+
+.modal-content select.modal-select {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #555;
+  border-radius: 5px;
+  background-color: #444;
+  color: #eee;
+  font-size: 1em;
+  box-sizing: border-box;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23cccccc%22%20d%3D%22M287%2C114.7L158.4%2C243.3c-1.8%2C1.8-4.1%2C2.7-6.4%2C2.7s-4.6-0.9-6.4-2.7L5.4%2C114.7c-3.6-3.6-3.6-9.4%2C0-13s9.4-3.6%2C13%2C0l140.3%2C140.3L274%2C101.7c3.6-3.6%2C9.4-3.6%2C13%2C0S290.6%2C111%2C287%2C114.7z%22%2F%3E%3C%2Fsvg%3E');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 12px;
+}
+
+.modal-content select.modal-select:focus {
+  border-color: #007bff;
+  outline: none;
 }

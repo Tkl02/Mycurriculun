@@ -1,13 +1,22 @@
+// src/components/modals/ProjectDeleteModal.tsx
+
 import React, { useState } from 'react';
 import api from '../../services/api';
+
+// Adicionado: Interface para o item de projeto esperado
+interface ProjectListItem {
+  id: string;
+  title: string;
+}
 
 interface ProjectDeleteModalProps {
   onClose: () => void;
   onSuccess?: () => void;
+  projects: ProjectListItem[]; // Recebe a lista de projetos
 }
 
-const ProjectDeleteModal: React.FC<ProjectDeleteModalProps> = ({ onClose, onSuccess }) => {
-  const [projectId, setProjectId] = useState('');
+const ProjectDeleteModal: React.FC<ProjectDeleteModalProps> = ({ onClose, onSuccess, projects }) => {
+  const [selectedProjectId, setSelectedProjectId] = useState(''); // Armazenará o ID selecionado
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
@@ -18,17 +27,16 @@ const ProjectDeleteModal: React.FC<ProjectDeleteModalProps> = ({ onClose, onSucc
     setError(null);
     setSuccessMessage(null);
 
-    if (!projectId.trim()) {
-      setError('O ID do projeto é obrigatório.');
+    if (!selectedProjectId) {
+      setError('Por favor, selecione um projeto para excluir.');
       setLoading(false);
       return;
     }
 
     try {
-
-      await api.delete(`/projects/${projectId}`);
+      await api.delete(`/projects/${selectedProjectId}`); // Exclui pelo ID
       setSuccessMessage('Projeto excluído com sucesso!');
-      setProjectId('');
+      setSelectedProjectId(''); // Limpa a seleção
       if (onSuccess) onSuccess();
       setTimeout(onClose, 1500);
     } catch (err: any) {
@@ -49,15 +57,25 @@ const ProjectDeleteModal: React.FC<ProjectDeleteModalProps> = ({ onClose, onSucc
         <button className="close-button" onClick={onClose}>&times;</button>
         <h2>Excluir Projeto</h2>
         <form onSubmit={handleDelete}>
-          <label htmlFor="projectId">ID do Projeto:</label>
-          <input
-            type="text"
-            id="projectId"
-            value={projectId}
-            onChange={(e) => setProjectId(e.target.value)}
-            placeholder="Cole o ID do projeto aqui"
+          <label htmlFor="selectProject">Selecione o Projeto:</label>
+          <select
+            id="selectProject"
+            value={selectedProjectId}
+            onChange={(e) => setSelectedProjectId(e.target.value)}
             required
-          />
+            className="modal-select" // Adiciona uma classe para estilização
+          >
+            <option value="">-- Selecione um projeto --</option>
+            {projects.length === 0 ? (
+              <option value="" disabled>Nenhum projeto disponível</option>
+            ) : (
+              projects.map((project) => (
+                <option key={project.id} value={project.id}>
+                  {project.title} (ID: {project.id.substring(19, 30)}) {/* Exibe nome e parte do ID */}
+                </option>
+              ))
+            )}
+          </select>
 
           {error && <p className="error-message">{error}</p>}
           {successMessage && <p style={{ color: 'lightgreen', textAlign: 'center', fontWeight: 'bold' }}>{successMessage}</p>}

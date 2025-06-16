@@ -16,7 +16,7 @@ function ContactPage() {
 
   const handleTextareaChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
     const newValue = e.target.value;
-    if (newValue.length <= 5000) {
+    if (newValue.length <= 2000) {
       setTextareaText(newValue);
     }
   };

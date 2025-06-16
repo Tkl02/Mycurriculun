@@ -3,13 +3,20 @@
 import React, { useState } from 'react';
 import api from '../../services/api';
 
-interface CertificationDeleteModalProps {
-  onClose: () => void;
-  onSuccess?: () => void; // Callback opcional
+// Adicionado: Interface para o item de certificação esperado
+interface CertificationListItem {
+  id: string;
+  name: string;
 }
 
-const CertificationDeleteModal: React.FC<CertificationDeleteModalProps> = ({ onClose, onSuccess }) => {
-  const [certificationId, setCertificationId] = useState('');
+interface CertificationDeleteModalProps {
+  onClose: () => void;
+  onSuccess?: () => void;
+  certifications: CertificationListItem[]; // Recebe a lista de certificações
+}
+
+const CertificationDeleteModal: React.FC<CertificationDeleteModalProps> = ({ onClose, onSuccess, certifications }) => {
+  const [selectedCertificationId, setSelectedCertificationId] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
@@ -20,17 +27,16 @@ const CertificationDeleteModal: React.FC<CertificationDeleteModalProps> = ({ onC
     setError(null);
     setSuccessMessage(null);
 
-    if (!certificationId.trim()) {
-      setError('O ID da certificação é obrigatório.');
+    if (!selectedCertificationId) {
+      setError('Por favor, selecione uma certificação para excluir.');
       setLoading(false);
       return;
     }
 
     try {
-      // Rota DELETE para certificações, passando o ID na URL
-      await api.delete(`/certifications/${certificationId}`);
+      await api.delete(`/certifications/${selectedCertificationId}`);
       setSuccessMessage('Certificação excluída com sucesso!');
-      setCertificationId(''); // Limpa o campo
+      setSelectedCertificationId('');
       if (onSuccess) onSuccess();
       setTimeout(onClose, 1500);
     } catch (err: any) {
@@ -51,15 +57,25 @@ const CertificationDeleteModal: React.FC<CertificationDeleteModalProps> = ({ onC
         <button className="close-button" onClick={onClose}>&times;</button>
         <h2>Excluir Certificação</h2>
         <form onSubmit={handleDelete}>
-          <label htmlFor="certificationId">ID da Certificação:</label>
-          <input
-            type="text"
-            id="certificationId"
-            value={certificationId}
-            onChange={(e) => setCertificationId(e.target.value)}
-            placeholder="Cole o ID da certificação aqui"
+          <label htmlFor="selectCertification">Selecione a Certificação:</label>
+          <select
+            id="selectCertification"
+            value={selectedCertificationId}
+            onChange={(e) => setSelectedCertificationId(e.target.value)}
             required
-          />
+            className="modal-select"
+          >
+            <option value="">-- Selecione uma certificação --</option>
+            {certifications.length === 0 ? (
+              <option value="" disabled>Nenhuma certificação disponível</option>
+            ) : (
+              certifications.map((cert) => (
+                <option key={cert.id} value={cert.id}>
+                  {cert.name} (ID: {cert.id.substring(19, 30)}...)
+                </option>
+              ))
+            )}
+          </select>
 
           {error && <p className="error-message">{error}</p>}
           {successMessage && <p style={{ color: 'lightgreen', textAlign: 'center', fontWeight: 'bold' }}>{successMessage}</p>}

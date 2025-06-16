@@ -2,7 +2,7 @@ import './Taskbar.css'
 import { NavLink } from 'react-router-dom';
 import logo from '../../assets/img/logo.png';
 import iconBrasil from '../../assets/img/iconBrasil.png';
-import iconUsa from '../../assets/img/iconUsa.png';
+//import iconUsa from '../../assets/img/iconUsa.png';
 
 
 function Taskbar() {
@@ -22,7 +22,7 @@ function Taskbar() {
             </div>
             <div className="tranducaoClass">
                 <img src={iconBrasil} alt='' />
-                <img src={iconUsa} alt='' />
+                {/* <img src={iconUsa} alt='' /> */}
             </div>
         </div>
     )
