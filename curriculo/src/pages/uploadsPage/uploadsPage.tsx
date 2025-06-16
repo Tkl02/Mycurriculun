@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import './uploadsPage.css';
-import ProjectUploadModal from "../../Components/models/ProjectUploadModal ";
-import CertificationUploadModal from "../../Components/models/CertificationUploadModal"
-import ProjectDeleteModal from "../../Components/models/ProjectDeleteModal"
-import CertificationDeleteModal from "../../Components/models/CertificationDeleteModal"
+import ProjectUploadModal from "../../components/models/ProjectUploadModal ";
+import CertificationUploadModal from "../../components/models/CertificationUploadModal"
+import ProjectDeleteModal from "../../components/models/ProjectDeleteModal"
+import CertificationDeleteModal from "../../components/models/CertificationDeleteModal"
 import projectImage from "../../assets/img/backProject.png"
 import certificationImage from "../../assets/img/backCertificate.jpg"
 import api from "../../services/api";
