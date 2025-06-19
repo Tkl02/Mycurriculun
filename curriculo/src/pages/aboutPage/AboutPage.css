@@ -1,9 +1,9 @@
-.aboutBodyPage{
+.aboutBodyPage {
     margin: 0 200px;
     justify-content: center;
 }
 
-.introducaoo{
+.introducaoo {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -12,22 +12,58 @@
     margin: 50px 0px;
 }
 
-h2{
+h2 {
     color: rgb(255, 255, 255);
     margin-bottom: 0px;
     font-size: 20px;
 }
 
-li{
+li {
     color: white;
     margin-top: 3px;
 }
 
-span{
+span {
     color: #959595;
 }
 
-hr{
+hr {
     margin-top: 3px;
     margin-bottom: 80px;
+}
+
+@media (max-width: 700px) {
+    .aboutBodyPage {
+        width: 350px;
+        margin: 10px;
+    }
+
+    .introducaoo {
+        display: flex;
+        flex-direction: column-reverse;
+        width: 345px;
+    }
+    h1{
+        font-size: 23px;
+    }
+
+    .aboutBodyPage h2 {
+        color: rgb(255, 255, 255);
+        margin-bottom: 0px;
+        font-size: 18px;
+    }
+
+    li {
+        color: white;
+        margin: 10px 10px;
+    }
+
+    .apresentacao span {
+        color: #959595;
+        font-size: 18px;
+    }
+    .aboutBodyPage p{
+        font-size: 14px;
+    }
+
 }

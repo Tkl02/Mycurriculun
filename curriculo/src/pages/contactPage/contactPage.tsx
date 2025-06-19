@@ -31,7 +31,7 @@ function ContactPage() {
   return (
     <div className='bodyContact'>
       <div className='imageEmail'>
-        <img src={emailImage} alt='Email' />
+        <img src={emailImage} alt='Email' className='imageEmail' />
       </div>
 
       <div className='boxEmail'>

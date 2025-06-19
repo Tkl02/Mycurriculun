@@ -17,3 +17,23 @@
 h1{
     color: white;
 }
+
+@media (max-width: 700px){
+    body{
+        display: flex;
+    }
+    .homePagaClass{
+        display: flex;
+        flex-direction: column;
+        width: 350px;
+        height: 120vh;
+    }
+
+    .homeImg img{
+        width: 250px;
+        margin: 5px;
+    }
+    .homeText{
+        width: 300px;
+    }
+}

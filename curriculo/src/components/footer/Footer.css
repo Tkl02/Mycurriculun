@@ -1,17 +1,17 @@
 .footerClass {
-  position: relative;
-  bottom: 0%;
-  background-color: #1e1e1e;
-  display: flex;
-  justify-content: space-between;
-  height: 70px;
-  width: 100%;
-  color: white;
-  border-top: 3px solid white;
+    position: relative;
+    bottom: 0%;
+    background-color: #1e1e1e;
+    display: flex;
+    justify-content: space-between;
+    height: 70px;
+    width: 100%;
+    color: white;
+    border-top: 3px solid white;
 }
 
 
-.direitosClass{
+.direitosClass {
     color: white;
     font-size: 16px;
     display: flex;
@@ -20,7 +20,7 @@
 
 }
 
-.socialmediaClass{
+.socialmediaClass {
     display: flex;
     align-items: center;
 }
@@ -31,7 +31,17 @@
     height: auto;
 }
 
-.socialmediaClass a{
+.socialmediaClass a {
     margin: 0px;
 }
 
+@media (max-width: 700px) {
+
+    .footerClass p {
+        font-size: 11px;
+    }
+
+    img {
+        width: 25px;
+    }
+}
