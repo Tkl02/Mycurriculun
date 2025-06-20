@@ -35,7 +35,10 @@
     margin: 0px;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 875px) {
+    .footerClass{
+        width: 130vh;
+    }
 
     .footerClass p {
         font-size: 11px;
@@ -44,4 +47,11 @@
     img {
         width: 25px;
     }
+}
+
+@media (max-width: 450px){
+    .footerClass{
+        width: 57vh;
+    }
+    
 }

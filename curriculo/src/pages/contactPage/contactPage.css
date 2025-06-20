@@ -82,8 +82,9 @@ input {
 
 }
 
-@media (max-width: 700px) {
+@media (max-width: 875px) {
     .bodyContact {
+        width: 127vh;
         height: 630px;
         display: flex;
         flex-wrap: wrap;
@@ -106,4 +107,11 @@ input {
         width: 95%;
         height: 170px;
     }
+}
+
+@media (max-width: 450px){
+    .bodyContact{
+        width: 56vh;
+    }
+    
 }
