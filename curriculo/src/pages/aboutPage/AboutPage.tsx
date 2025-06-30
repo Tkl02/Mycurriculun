@@ -1,5 +1,5 @@
 import './AboutPage.css'
-import testes from '../../assets/img/testes.png'
+import myImage2 from '../../assets/img/myImages.jpg'
 
 function AboutPage() {
     return (
@@ -14,7 +14,7 @@ function AboutPage() {
                         Sou estudante de ciências da computação no Instituto Federal Goiano, gosto particularmente da área de segurança da informação onde busco melhorar minhas habilidade tanto no red team quanto no blue team. Tenho alguma experiencia na elaboração de normas, politicas e diretrizes para a adequação com a LGPD. Também tenho conhecimento em diversas ferramentas ou conceitos que suplementam a área da segurança da informação como redes de computadores, pentest, linux, programação, entre outras. Meu objetivo e ganhar ainda mais experiencia no mercado e evoluir minhas habilidades contribuindo para o avanço da empresa através da responsabilidade, organização e eficiência.
                     </p>
                 </div>
-                <div><img src={testes} alt="" /></div>
+                <div><img src={myImage2} alt="" /></div>
             </div>
             <hr></hr>
             <div className='apresentacao'>

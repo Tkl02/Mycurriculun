@@ -1,5 +1,5 @@
 .aboutBodyPage {
-    margin: 0 200px;
+    margin: 0 136px;
     justify-content: center;
 }
 
@@ -11,7 +11,15 @@
     gap: 50px;
     margin: 50px 0px;
 }
-
+.introducaoo img{
+    border-radius: 7px;
+    width: 430px;
+    height: auto;
+}
+.introducaoo p{
+    font-size: 18px;
+    line-height: 1.5;
+}
 h2 {
     color: rgb(255, 255, 255);
     margin-bottom: 0px;
@@ -34,14 +42,18 @@ hr {
 
 @media (max-width: 875px) {
     .aboutBodyPage {
-        width: 127vh;
-        margin: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        margin: 0px;
     }
 
     .introducaoo {
         display: flex;
         flex-direction: row;
-        width: 345px;
+        width: 95%;
+
     }
     h1{
         font-size: 23px;
@@ -57,6 +69,9 @@ hr {
         color: white;
         margin: 10px 10px;
     }
+    .apresentacao{
+        width: 95%;
+    }
 
     .apresentacao span {
         color: #959595;
@@ -64,6 +79,15 @@ hr {
     }
     .aboutBodyPage p{
         font-size: 14px;
+    }
+    .introducaoo img{
+    border-radius: 7px;
+    width: 315px;
+    height: auto;
+}
+    hr{
+        width: 90%;
+        margin-bottom: 20px;
     }
 
 }

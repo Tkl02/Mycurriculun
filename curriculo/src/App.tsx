@@ -1,11 +1,11 @@
 import './App.css'
-import teste from './assets/img/testes.png'
+import myImage from './assets/img/myImages.jpg'
 
 function App() {
     return(
         <div className='homePagaClass'>
             <div className='homeImg'>
-                <img src={teste} alt="MyImage"/>
+                <img src={myImage} alt="MyImage"/>
             </div>
             <div className='homeText'>
                 <h1>

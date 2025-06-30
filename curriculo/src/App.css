@@ -9,6 +9,11 @@
 .homeImg{
     margin: 50px;
 }
+.homeImg img{
+    height: 500px;
+    width: auto;
+    border-radius: 7px;
+}
 
 .homeText{
     width: 460px;
@@ -31,7 +36,7 @@ h1{
 
     .homeImg img{
         width: 250px;
-        margin: 5px;
+        height: auto;
     }
     .homeText{
         width: 300px;
@@ -40,7 +45,8 @@ h1{
 
 @media (max-width: 450px){
     .homePagaClass{
-        width: 53vh;
+        width: 100%;
+        height: 85%;
     }
     
 }

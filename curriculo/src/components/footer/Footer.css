@@ -1,6 +1,8 @@
 .footerClass {
     position: relative;
-    bottom: 0%;
+    bottom: 0;
+    left: 0;
+    right: 0;
     background-color: #1e1e1e;
     display: flex;
     justify-content: space-between;
@@ -37,7 +39,7 @@
 
 @media (max-width: 875px) {
     .footerClass{
-        width: 130vh;
+        width: 100%;
     }
 
     .footerClass p {
