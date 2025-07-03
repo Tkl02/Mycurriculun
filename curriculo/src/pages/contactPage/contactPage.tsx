@@ -45,7 +45,7 @@ function ContactPage() {
 
     emailjs.send("service_4cbphys", "template_u9ad9ar", emailParams, "lJ43v-24Zd-QcU09b")
     .then(() => {
-      console.log("email enviado com sucesso")
+      alert("Email enviado com sucesso")
     })
 
   }
