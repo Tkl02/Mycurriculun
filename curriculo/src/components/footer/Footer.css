@@ -53,7 +53,7 @@
 
 @media (max-width: 450px){
     .footerClass{
-        width: 57vh;
+        width: 100%;
     }
     
 }

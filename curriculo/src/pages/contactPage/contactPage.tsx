@@ -1,6 +1,7 @@
 import { useState, type ChangeEvent } from 'react';
 import './contactPage.css';
 import emailImage from '../../assets/img/gmail-logo1.png';
+import emailjs from '@emailjs/browser'
 
 function ContactPage() {
   const [inputText, setInputText] = useState('');
@@ -28,36 +29,71 @@ function ContactPage() {
     }
   };
 
+  function handleFormSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+
+    if(inputText === '' || textareaText === '' || emailText ===''){
+      alert("Todos os campos são obrigatorios!!")
+      return
+    }
+
+    const emailParams = {
+      name: inputText,
+      email: emailText,
+      message: textareaText,
+    }
+
+    emailjs.send("service_4cbphys", "template_u9ad9ar", emailParams, "lJ43v-24Zd-QcU09b")
+    .then(() => {
+      console.log("email enviado com sucesso")
+    })
+
+  }
+
   return (
-    <div className='bodyContact'>
-      <div className='imageEmail'>
-        <img src={emailImage} alt='Email' className='imageEmail' />
-      </div>
+    <form className='bodyContact' onSubmit={handleFormSubmit}>
+  <div className='imageEmail'>
+    <img src={emailImage} alt='Email' className='imageEmail' />
+  </div>
 
-      <div className='boxEmail'>
-        <p>Nome Sobrenome</p>
-        <input type="text" value={inputText} onChange={handleInputChange} />
+  <div className='boxEmail'>
+    <label htmlFor='nameInput'>Nome Sobrenome</label>
+    <input
+      id='nameInput'
+      type='text'
+      value={inputText}
+      onChange={handleInputChange}
+    />
 
-        <p>Email</p>
-        <input type="email" value={emailText} onChange={handleEmailChange} />
+    <label htmlFor='emailInput'>Email</label>
+    <input
+      id='emailInput'
+      type='email'
+      value={emailText}
+      onChange={handleEmailChange}
+    />
 
-        <p>Mensagem</p>
-        <textarea
-          value={textareaText}
-          onChange={handleTextareaChange}
-          className='custom-textarea'
-          placeholder='Digite sua mensagem aqui...'
-        />
-        <div className='containerCounterChar'>
-          <p style={{color: '#393d3f', fontSize:14}}>
-            Atual:{textareaText.length} Max:5000.
-          </p>
-        </div>
-        <div className='buttomContainer'>
-        <button className='enviarButton'>Enviar</button>
-        </div>
-      </div>
+    <label htmlFor='messageTextarea'>Mensagem</label>
+    <textarea
+      id='messageTextarea'
+      value={textareaText}
+      onChange={handleTextareaChange}
+      className='custom-textarea'
+      placeholder='Digite sua mensagem aqui...'
+      maxLength={2000}
+    />
+
+    <div className='containerCounterChar'>
+      <p style={{ color: '#393d3f', fontSize: 14 }}>
+        Atual:{textareaText.length} Max:2000.
+      </p>
     </div>
+
+    <div className='buttomContainer'>
+      <button type='submit' className='enviarButton'>Enviar</button>
+    </div>
+  </div>
+</form>
   );
 }
 

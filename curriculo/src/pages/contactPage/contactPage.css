@@ -3,9 +3,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-wrap: wrap;
+    flex-direction: row;
     gap: 30px;
-
 }
 
 img {
@@ -30,7 +29,7 @@ p {
 }
 
 input {
-    margin: 8px;
+    margin: 6px;
     padding: 8px;
     font-size: 16px;
     border: 1px solid #000000;
@@ -82,6 +81,11 @@ input {
 
 }
 
+.boxEmail label{
+    margin-left: 5px;
+    margin-top: 5px;
+}
+
 @media (max-width: 875px) {
     .bodyContact {
         width: 127vh;
@@ -111,7 +115,7 @@ input {
 
 @media (max-width: 450px){
     .bodyContact{
-        width: 56vh;
+        width: 100%;
     }
     
 }
