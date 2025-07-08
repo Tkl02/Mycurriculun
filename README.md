@@ -2,7 +2,7 @@
 
 Este site tem como objetivo a aprendizagem de desenvolvimento usando react com implementação de um banco de dados para gerenciar o upload de projestos e certificações.
 
-<a href="leonardofaustino.vercel.app"> <img src=""> leonardofaustino.vercel.app </a>
+<a href="https://leonardofaustino.vercel.app"> <img src="./website.png" style=" width: 22px " > leonardofaustino.vercel.app </a>
 
 ## Tecnologias
 
