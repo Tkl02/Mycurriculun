@@ -5,7 +5,7 @@
   padding: 50px 20px;
   background-color: #222; 
   color: #eee; 
-  height: 100vh;
+  height: 85vh;
   font-family: Arial, sans-serif;
 }
 
@@ -52,7 +52,7 @@
 .error-page-container{
   display: flex;
   justify-content: center;
-  height: 80vh;
+  height: 85vh;
 }
 
 .project-header {
